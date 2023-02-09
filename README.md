@@ -8,7 +8,7 @@ All information on the PDF can be customized by editing `src/data/data.tsx`
 
 ## What does it look like?
 
-![Sample PDF](https://github.com/mjhult/resume-pdf/blob/main/image.jpg?raw=true)
+<img src='./readme%20assets/preview.png' width='300px'/>
 
 ## Generation
 

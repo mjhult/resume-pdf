@@ -2,21 +2,28 @@ import React, { FC } from 'react';
 import { Document, Page, View, Text, StyleSheet } from '@react-pdf/renderer';
 import { Experience } from './components/Experience';
 
-// Data imports
-import { data } from './data/data';
 import { Contact } from './components/Contact';
 import { textFormat } from './helpers/helper';
+
+// Data imports
+import { data, colors } from './data/data';
 
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
-    backgroundColor: '#FEFFF8',
+    backgroundColor: colors.backgroundColor,
   },
 
   header: {
     alignContent: 'center',
     alignSelf: 'center',
     padding: 10,
+  },
+
+  title: {
+    fontSize: 24,
+    marginBottom: 17,
+    color: colors.primaryColor,
   },
 
   sections: {
@@ -33,19 +40,24 @@ const styles = StyleSheet.create({
 
 const Resume: FC = () => (
   <Document>
-    <Page size='A4' style={styles.page}>
+    <Page size='A4' wrap={false} style={styles.page}>
       {/* Header */}
-      <View style={styles.header}>
-        <Text>{data.name}</Text>
-        <Text>{data.position}</Text>
+      <View style={{ ...styles.header, alignItems: 'center' }}>
+        <Text style={{ fontSize: 35, color: colors.textColor }}>
+          {data.name}
+        </Text>
+        <Text style={{ fontSize: 20, color: colors.textColor }}>
+          {data.position}
+        </Text>
       </View>
 
       {/* Split view */}
       <View style={styles.sections}>
+        {/* Projects, Experience */}
         <View style={styles.section}>
           {/* Project Experience */}
           <View style={styles.section}>
-            <Text>Projects</Text>
+            <Text style={styles.title}>Projects</Text>
             {data.projects.map((e, i) => (
               <Experience
                 key={i}
@@ -58,23 +70,32 @@ const Resume: FC = () => (
 
           {/* Work Experience */}
           <View style={styles.section}>
-            <Text>Experience</Text>
+            <Text style={styles.title}>Experience</Text>
             {data.workExperience.map((e, i) => (
               <Experience
                 key={i}
                 title={e.title}
                 subTitle={e.subTitle}
                 duties={e.duties}
+                subTitleStyle={{ marginBottom: 5 }}
               />
             ))}
           </View>
         </View>
 
         {/* Professional Summary, Contact, Skills */}
-        <View style={styles.section}>
+        <View
+          style={[
+            styles.section,
+            {
+              borderLeft: 1,
+              borderColor: colors.secondaryColor,
+              marginRight: 1,
+            },
+          ]}>
           {/* Contact */}
           <View style={styles.section}>
-            <Text>Contact Me</Text>
+            <Text style={styles.title}>Contact Me</Text>
             {data.contacts.map((contact, i) => (
               <Contact
                 key={i}
@@ -87,17 +108,37 @@ const Resume: FC = () => (
 
           {/* Summary */}
           <View style={styles.section}>
-            <Text>Summary</Text>
-            <Text style={{ fontSize: 13 }}>
+            <Text style={styles.title}>Summary</Text>
+            <Text
+              style={{
+                fontSize: 13,
+                color: colors.textColor,
+                textAlign: 'left',
+                width: 230,
+              }}>
               {data.professionalSummary ?? 'No summary.'}
             </Text>
           </View>
 
           {/* Skills */}
           <View style={styles.section}>
-            <Text>Skills</Text>
-            {data.skills.map((skill, i) => (
-              <Text key={i} style={{ fontSize: 13 }}>
+            <Text style={styles.title}>Skills</Text>
+            {data.skills.data.map((skill, i) => (
+              <Text
+                key={i}
+                style={{
+                  fontSize: 13,
+                  color: colors.textColor,
+                  marginBottom: 6,
+                }}>
+                <Text
+                  style={{
+                    fontSize: 13,
+                    color: colors.secondaryColor,
+                    marginBottom: 6,
+                  }}>
+                  {data.skills.point ? `${data.skills.point} ` : null}
+                </Text>
                 {textFormat(skill)}
               </Text>
             ))}

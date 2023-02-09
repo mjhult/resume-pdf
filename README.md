@@ -1,5 +1,3 @@
-# resume-pdf
-
 ## To generate the pdf
 
 1. Open terminal and install dependancies: `yarn install`

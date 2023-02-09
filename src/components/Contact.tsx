@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
 
   text: {
     marginLeft: 4,
+    fontSize: 13,
+    // backgroundColor: 'red',
+    width: 230,
   },
 });
 

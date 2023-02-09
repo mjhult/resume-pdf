@@ -6,6 +6,10 @@ A simple resume design made in React using ReactPDF.
 
 All information on the PDF can be customized by editing `src/data/data.tsx`
 
+## What does it look like?
+
+![Sample PDF](https://github.com/mjhult/resume-pdf/blob/main/image.jpg?raw=true)
+
 ## Generation
 
 1. Open terminal and clone this repo `git clone https://github.com/mjhult/resume-pdf`

@@ -1,4 +1,6 @@
+import ReactPDF from '@react-pdf/renderer';
 import { ReactNode } from 'react';
+import { Style } from '@react-pdf/types';
 
 export type Duty = {
   title: string;
@@ -10,8 +12,8 @@ export type Duty = {
 export type WorkExperience = {
   title: string;
   titleTextColor?: string;
-  subTitle?: string;
-  subTitleTextColor?: string;
+  subTitle?: string | ReactNode;
+  subTitleStyle?: Style;
   duties?: Duty[];
 };
 
@@ -21,12 +23,17 @@ export type ContactInfo = {
   icon?: ReactNode;
 };
 
+export type SkillData = {
+  data: string[];
+  point: string;
+};
+
 export type Data = {
   name: string;
   position: string;
   professionalSummary: string;
   contacts: ContactInfo[];
-  skills: string[];
+  skills: SkillData;
   projects: WorkExperience[];
   workExperience: WorkExperience[];
 };

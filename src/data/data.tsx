@@ -1,119 +1,200 @@
 import React from 'react';
 import { Data } from '../types/data';
 import { GitHub, LinkedIn, Mail, Phone } from '../assets/icons';
+import { Text } from '@react-pdf/renderer';
+
+export const colors = {
+  textColor: '#02010A',
+  backgroundColor: '#FEFFF8',
+  primaryColor: '#519872',
+  secondaryColor: '#00747A',
+};
 
 export const data: Data = {
-  name: 'Mathew Hultquist',
-  position: 'Software Engineer',
-  professionalSummary: 'Idk I really like writing code. teehee',
+  name: 'John Doe',
+  position: 'Some Position',
+  professionalSummary:
+    'As a highly skilled and motivated web developer with over 5 years of experience, I have a proven track record of delivering innovative and functional web solutions to clients. I have extensive knowledge of web development technologies such as HTML, CSS, JavaScript, and PHP, as well as experience with popular content management systems like WordPress and Shopify. I am well-versed in both front-end and back-end development, and I have a strong understanding of user experience design and responsive web design. I am also familiar with agile development methodologies and have a strong ability to collaborate effectively with cross-functional teams. My passion for web development and commitment to staying current with industry trends and advancements make me a valuable asset to any organization.',
   contacts: [
     {
       type: 'phone',
       data: '+1 (999) 999-9999',
-      icon: <Phone />,
+      icon: <Phone color={colors.secondaryColor} width={18} height={18} />,
     },
     {
       type: 'email',
-      data: 'mathew@gates.services',
-      icon: <Mail />,
+      data: 'email@example.com',
+      icon: <Mail color={colors.secondaryColor} width={18} height={18} />,
     },
     {
       type: 'github',
-      data: 'mjhult',
-      icon: <GitHub />,
+      data: 'example',
+      icon: <GitHub color={colors.secondaryColor} width={18} height={18} />,
     },
     {
       type: 'linkedin',
-      data: 'mathew-hultquist',
-      icon: <LinkedIn />,
+      data: 'john-smith',
+      icon: <LinkedIn color={colors.secondaryColor} width={18} height={18} />,
     },
   ],
-  skills: ['skill1', 'skill2', 'skill3', 'skill4', 'skill5'],
+  skills: {
+    data: [
+      'Webpack',
+      'Ruby',
+      'TypeScript',
+      'JavaScript',
+      'React',
+      'NodeJs',
+      'Express',
+    ],
+    point: '>',
+  },
   projects: [
     {
-      title: 'Test Project 1',
+      title: 'E-Commerce Example',
+      // You can either provide a description or bullet points on the technologies used or a mixture of the two.
       duties: [
         {
-          title: 'Webpack',
-          point: '> ',
+          title:
+            'Designed and developed a fully functional e-commerce website for a retail company, featuring a user-friendly interface, secure payment gateway, and product management system.',
         },
         {
-          title: 'Vercel',
-          point: '> ',
+          title: 'Webpack',
+          point: '>',
+        },
+        {
+          title: 'Redux',
+          point: '>',
+        },
+        {
+          title: 'React',
+          point: '>',
+        },
+        {
+          title: 'Express',
+          point: '>',
         },
       ],
     },
     {
-      title: 'Test Project 2',
+      title: 'Responsive Portfolio Website',
       duties: [
         {
-          title: 'Webpack',
-          point: '> ',
+          title:
+            'Built a custom portfolio website for a freelance graphic designer, incorporating responsive design and smooth animations.',
         },
         {
-          title: 'Vercel',
-          point: '> ',
+          title: 'Webpack',
+          point: '>',
+        },
+        {
+          title: 'Redux',
+          point: '>',
+        },
+        {
+          title: 'React',
+          point: '>',
+        },
+        {
+          title: 'Express',
+          point: '>',
+        },
+      ],
+    },
+    {
+      title: 'Job Board Website',
+      duties: [
+        {
+          title:
+            'Created a job board website for a human resources company, complete with advanced search functionality, resume submissions, and email notifications.',
+        },
+        {
+          title: 'Webpack',
+          point: '>',
+        },
+        {
+          title: 'Redux',
+          point: '>',
+        },
+        {
+          title: 'React',
+          point: '>',
+        },
+        {
+          title: 'Express',
+          point: '>',
         },
       ],
     },
   ],
   workExperience: [
     {
-      title: 'Test Experience 1',
-      subTitle: 'Some date range here i suppose',
+      title: 'Website Developer',
+      subTitle: (
+        <Text>
+          <Text style={{ color: colors.secondaryColor }}>
+            December 2020 - Present |{' '}
+          </Text>
+          E-Commerce Inc.
+        </Text>
+      ),
       duties: [
         {
-          title: 'duty 1',
+          title:
+            'Designed and implemented a custom e-commerce website for a retail company, resulting in a 50% increase in online sales.',
           point: '> ',
         },
         {
-          title: 'duty 2',
+          title:
+            'Utilized WooCommerce plugin to integrate with existing payment gateway and manage product inventory.',
           point: '> ',
         },
         {
-          title: 'duty 3',
+          title:
+            'Implemented user-friendly interface with responsive design and smooth user experience.',
           point: '> ',
         },
         {
-          title: 'duty 4',
+          title:
+            'Created custom product pages with detailed product descriptions, images, and user reviews.',
           point: '> ',
         },
         {
-          title: 'duty 5',
-          point: '> ',
-        },
-        {
-          title: 'duty with a really really really really really  long title',
+          title:
+            'Utilized SEO optimization techniques to increase organic traffic and improve search engine rankings.',
           point: '> ',
         },
       ],
     },
     {
-      title: 'Test Experience 2',
-      subTitle: 'Some date range here i suppose',
+      title: 'Software Developer',
+      subTitle: (
+        <Text>
+          <Text style={{ color: colors.secondaryColor }}>
+            December 2020 - Present |{' '}
+          </Text>
+          Responsive Website LLC.
+        </Text>
+      ),
       duties: [
         {
-          title: 'duty 1',
+          title:
+            'Developed a custom portfolio website for a freelance graphic designer using HTML, CSS, and JavaScript.',
           point: '> ',
         },
         {
-          title: 'duty 2',
+          title:
+            'Incorporated responsive design to ensure website was optimized for desktop, tablet, and mobile devices.',
           point: '> ',
         },
         {
-          title: 'duty 3',
+          title:
+            'Implemented smooth animations and transitions to enhance user experience.',
           point: '> ',
         },
         {
-          title: 'duty 4',
-          point: '> ',
-        },
-        {
-          title: 'duty 5',
-          point: '> ',
-        },
-        {
-          title: 'duty with a really really really really really  long title',
+          title:
+            'Integrated with Behance API to display portfolio projects and increase visibility.',
           point: '> ',
         },
       ],

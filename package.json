@@ -1,0 +1,21 @@
+{
+  "name": "resume-pdf",
+  "packageManager": "yarn@3.4.1",
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.27",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^3.1.3",
+    "react": "^18.2.0"
+  },
+  "scripts": {
+    "transpile": "yarn tsc",
+    "build": "yarn transpile && node build/index.js",
+    "build:dev": "yarn nodemon src/index.ts --watch src/**/*"
+  }
+}

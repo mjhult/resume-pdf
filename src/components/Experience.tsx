@@ -1,25 +1,54 @@
-import React, { FC } from "react";
-import { Text, View } from "@react-pdf/renderer";
+import React, { FC } from 'react';
+import { StyleSheet, Text, View } from '@react-pdf/renderer';
+import { WorkExperience } from '../types/data';
 
-export type Duty = {
-  title: string;
-  point?: string;
-  pointColor?: string;
-  textColor?: string;
-};
+const styles = StyleSheet.create({
+  experienceContainer: {
+    // backgroundColor: 'red',
+    // width: 250,
+    // height: 150,
+    marginTop: 8,
+    // marginBottom: 8,
+  },
 
-export type ExperienceProps = {
-  title: string;
-  titleTextColor?: string;
-  subTitle: string;
-  subTitleTextColor?: string;
-  duties?: Duty[];
-};
+  experienceTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
 
-const Experience: FC<ExperienceProps> = ({
+  experienceSubTitle: {
+    fontSize: 13,
+    fontWeight: 'normal',
+  },
+
+  dutyTitle: {
+    fontSize: 9,
+  },
+
+  dutySubtitle: {
+    fontSize: 8,
+  },
+});
+
+export const Experience: FC<WorkExperience> = ({
   title,
   subTitle,
   duties,
   subTitleTextColor,
   titleTextColor,
-}) => null;
+}) => {
+  return (
+    <View style={styles.experienceContainer}>
+      <Text style={styles.experienceTitle}>{title}</Text>
+      <Text style={styles.experienceSubTitle}>{subTitle ?? null}</Text>
+      {duties?.map((duty, i) => (
+        <Text
+          key={i}
+          style={{ color: duty.textColor ?? '', ...styles.dutyTitle }}>
+          <Text style={{ color: duty.pointColor ?? '' }}>{duty.point}</Text>{' '}
+          {duty.title}
+        </Text>
+      ))}
+    </View>
+  );
+};

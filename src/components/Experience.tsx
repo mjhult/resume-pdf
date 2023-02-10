@@ -36,14 +36,19 @@ export const Experience: FC<WorkExperience> = ({
 }) => {
   return (
     <View style={styles.experienceContainer}>
-      <Text style={styles.experienceTitle}>{title}</Text>
+      <Text style={[styles.experienceTitle, { color: colors.textColor }]}>
+        {title}
+      </Text>
       <Text style={[styles.experienceSubTitle, subTitleStyle]}>
         {subTitle ?? null}
       </Text>
       {duties?.map((duty, i) => (
         <Text
           key={i}
-          style={[{ color: duty.textColor ?? '' }, styles.dutyTitle]}>
+          style={[
+            { color: duty.textColor ?? colors.textColor },
+            styles.dutyTitle,
+          ]}>
           <Text
             style={{
               color: duty.pointColor ?? colors.primaryColor,

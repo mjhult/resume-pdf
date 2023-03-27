@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactPDF, { G, Path, Svg } from '@react-pdf/renderer';
+import ReactPDF, { Circle, G, Path, Svg } from '@react-pdf/renderer';
 
 export const GitHub = (props: ReactPDF.SVGProps & { color?: string }) => (
   <Svg width={24} height={24} viewBox='0 0 256 250' {...props}>
@@ -43,5 +43,15 @@ export const Phone = (props: ReactPDF.SVGProps & { color?: string }) => (
       <Path d='M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z' />
       <Path d='M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z' />
     </G>
+  </Svg>
+);
+
+export const Location = (props: ReactPDF.SVGProps & { color?: string }) => (
+  <Svg width={24} height={24} viewBox='0 0 24 24' {...props}>
+    <Path
+      fill={props.color ?? 'currentColor'}
+      d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z'
+    />
+    <Circle cx={12} cy={9} r={2.5} fill={props.color ?? 'currentColor'} />
   </Svg>
 );

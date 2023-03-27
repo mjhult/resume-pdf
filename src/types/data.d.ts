@@ -3,8 +3,8 @@ import { ReactNode } from 'react';
 import { Style } from '@react-pdf/types';
 
 export type Duty = {
-  title: string;
-  point?: string;
+  title: string | ReactNode;
+  point?: string | ReactNode;
   pointColor?: string;
   textColor?: string;
 };
